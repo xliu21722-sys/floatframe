@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111714" />
+    <meta
+      name="description"
+      content="浮映 FloatFrame：照片上浮、透视归位、由虚到实。可调参数的动效实验台与 Remotion 组件。"
+    />
+    <title>浮映 FloatFrame · Motion playground</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111714'/%3E%3Cpath d='M9 23V8h15v4H13v3h9v4h-9v4' fill='%23c7ff97'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="./" aria-label="浮映首页"
+        ><span class="brand-mark">f.</span
+        ><span>FloatFrame <span class="brand-cn">浮映</span></span></a
+      >
+      <span class="header-note">MOTION STUDY / 001</span>
+      <a class="source-link" href="#implementation">查看代码</a>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">PHOTO ENTRANCE / REMOTION</p>
+          <h1>轻轻浮入，<span>清晰落定。</span></h1>
+        </div>
+        <p class="intro-copy">
+          上浮、透视、聚焦。<br />把一次照片入场，调到恰到好处。
+        </p>
+      </section>
+      <section class="workbench" aria-label="照片动效实验台">
+        <div class="preview-panel">
+          <div class="panel-top">
+            <span>01 / 实时预览</span><span id="play-state">准备就绪</span>
+          </div>
+          <div class="stage" id="stage">
+            <div class="stage-label">FLOAT / FOCUS / SETTLE</div>
+            <div class="scene" id="scene">
+              <div class="motion-card" id="motion-card">
+                <div class="sample-card" id="sample-card">
+                  <div class="card-top">
+                    <span>FF.</span><span>视觉实验<br />NO. 001</span>
+                  </div>
+                  <div class="card-title">Float<br /><span>Frame.</span></div>
+                  <div class="card-bottom">
+                    <strong>浮 映</strong
+                    ><span>A SOFT ARRIVAL.<br />A CLEAR IMPRESSION.</span>
+                  </div>
+                </div>
+                <img id="photo" alt="你的照片，完整比例预览" hidden />
+              </div>
+            </div>
+            <div class="stage-bottom">
+              <span>FULL FRAME · NO CROP</span
+              ><span id="frame-count">F 043 / 30 FPS</span>
+            </div>
+          </div>
+          <div class="transport">
+            <button id="play" class="play" type="button" aria-label="重播动效">
+              ▶ <span>重播</span>
+            </button>
+            <label class="sr-only" for="timeline">预览时间轴</label>
+            <div class="timeline-wrap">
+              <input
+                id="timeline"
+                type="range"
+                min="0"
+                max="2.3"
+                value="1.433333"
+                step="0.001"
+              />
+              <div class="timeline-labels">
+                <span>0.00 s</span><span id="duration-label">2.30 s</span>
+              </div>
+            </div>
+            <output id="time-output" for="timeline">1.43 s</output>
+            <label class="loop-label"
+              ><input id="loop" type="checkbox" />循环</label
+            >
+          </div>
+        </div>
+        <aside class="controls">
+          <div class="control-heading">
+            <h2>动效参数</h2>
+            <button id="reset" class="text-button" type="button">还原</button>
+          </div>
+          <p class="control-copy">默认值来自原视频，拖动即可预览。</p>
+          <div class="parameter">
+            <label for="duration"
+              >入场时长 <output id="duration-value">1.43 s</output></label
+            ><input
+              id="duration"
+              type="range"
+              min="0.5"
+              max="3"
+              step="0.01"
+              value="1.433333"
+            />
+            <div class="range-labels"><span>利落</span><span>从容</span></div>
+          </div>
+          <div class="parameter">
+            <label for="rise"
+              >上浮距离 <output id="rise-value">90 px</output></label
+            ><input
+              id="rise"
+              type="range"
+              min="0"
+              max="160"
+              step="1"
+              value="90"
+            />
+          </div>
+          <div class="parameter">
+            <label for="blur"
+              >初始虚化 <output id="blur-value">12 px</output></label
+            ><input
+              id="blur"
+              type="range"
+              min="0"
+              max="24"
+              step="1"
+              value="12"
+            />
+          </div>
+          <div class="parameter">
+            <label for="tilt"
+              >透视倾斜 <output id="tilt-value">7°</output></label
+            ><input
+              id="tilt"
+              type="range"
+              min="0"
+              max="16"
+              step="0.5"
+              value="7"
+            />
+          </div>
+          <div class="curve-box">
+            <div><span>缓动曲线</span><strong>柔和减速</strong></div>
+            <svg
+              viewBox="0 0 180 64"
+              role="img"
+              aria-label="cubic-bezier 0.16, 1, 0.3, 1 减速曲线"
+            >
+              <path
+                class="curve-grid"
+                d="M0 4H180M0 32H180M0 60H180M2 0V64M90 0V64M178 0V64"
+              />
+              <path d="M2 60C30 4 55 4 178 4" class="curve-line" />
+              <circle id="curve-dot" cx="178" cy="4" r="4" /></svg
+            ><code>cubic-bezier(.16, 1, .3, 1)</code>
+          </div>
+          <div class="photo-actions">
+            <label class="file-button" for="image-input"
+              >选择照片预览<input
+                id="image-input"
+                type="file"
+                accept="image/jpeg,image/png,image/webp,image/avif" /></label
+            ><button id="sample" class="text-button" type="button" hidden>
+              恢复示例
+            </button>
+          </div>
+          <p class="privacy">照片只在本机预览，不会上传。</p>
+          <p id="status" class="status" role="status"></p>
+        </aside>
+      </section>
+      <section class="details" aria-label="动效数值与代码">
+        <div class="motion-readout">
+          <p class="eyebrow">ANATOMY OF AN ARRIVAL</p>
+          <h2>三个动作，一次入场。</h2>
+          <div class="metrics">
+            <div>
+              <span>01 / 上浮</span
+              ><strong id="live-y">0.0<small>px</small></strong>
+            </div>
+            <div>
+              <span>02 / 聚焦</span
+              ><strong id="live-blur">0.0<small>px</small></strong>
+            </div>
+            <div>
+              <span>03 / 缩放</span
+              ><strong id="live-scale">1.00<small>×</small></strong>
+            </div>
+          </div>
+          <p>
+            照片整体运动，始终保持原始比例。<br />拖动时间轴，逐帧查看每个瞬间。
+          </p>
+        </div>
+        <div class="code-panel" id="implementation">
+          <div class="code-heading">
+            <span>02 / Remotion 接入</span
+            ><button type="button" id="copy">复制代码</button>
+          </div>
+          <pre tabindex="0"><code id="code"></code></pre>
+          <p>
+            将 <a href="./FloatFrame.tsx" download>FloatFrame.tsx</a> 与
+            <a href="./lib/motion.js" download>motion.js</a>
+            放进同一目录，修改组件中的 import 为 <code>'./motion.js'</code>。
+          </p>
+        </div>
+      </section>
+      <footer>
+        <span>FloatFrame / 浮映</span><span>FRAME-DRIVEN. FULLY VISIBLE.</span
+        ><span>Motion study · 2026</span>
+      </footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

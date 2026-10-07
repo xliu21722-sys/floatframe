@@ -1,0 +1,21 @@
+{
+  "name": "floatframe",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "浮映 — a photo entrance motion for Remotion with an interactive playground",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.533"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  }
+}
