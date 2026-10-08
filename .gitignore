@@ -8,3 +8,5 @@ out/
 *.jpeg
 *.jpg
 *.png
+!docs/effects/*/poster.png
+!docs/effects/*/preview.mp4

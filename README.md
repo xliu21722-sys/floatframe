@@ -1,4 +1,30 @@
-# 浮映 · FloatFrame
+# 阿伟的镜头库
+
+可交互、可暂停、可复用的 Remotion 镜头收藏。网站名称为「阿伟的镜头库」，仓库与网址仍沿用 `floatframe`，旧链接保持有效。
+
+新增三个安全示例：
+
+| 镜头         | 用途               | 在线预览                                                                          |
+| ------------ | ------------------ | --------------------------------------------------------------------------------- |
+| 弧形逐字弹入 | 开场标题、重点提示 | [交互预览](https://xliu21722-sys.github.io/floatframe/effects/arc-pop-title/)     |
+| 圆形聚焦旋环 | 观点转折、圆形聚焦 | [交互预览](https://xliu21722-sys.github.io/floatframe/effects/spotlight-orbit/)   |
+| 递进高亮卡片 | 分点讲解、步骤提示 | [交互预览](https://xliu21722-sys.github.io/floatframe/effects/progressive-cards/) |
+
+## 新增镜头接入
+
+保留相对路径复制 `src/effects/` 与 `docs/effects/shared/` 到你的 Remotion 工程。三个组件分别导出 `ArcPopTitle`、`SpotlightOrbit`、`ProgressiveCards`。它们共享纯计算和 SVG 渲染，因此网页与视频的时序一致。原始画布是 720×1280；可通过容器等比缩放。
+
+```tsx
+import { ArcPopTitle } from "./effects/arc-pop-title";
+
+<ArcPopTitle settings={{ title: "重点来了", stagger: 1.7 / 30 }} />;
+```
+
+`SpotlightOrbit` 支持 `title` 和 `ringSpeed`（度/秒）；`ProgressiveCards` 支持 `title`、三个字符串组成的 `items` 和 `distance`（像素）。仅入场物体和时间轴可复用，公开示例刻意使用原创抽象图形代替原片人物。标题最多 6 字，卡片标题最多 13 字，以保留安全边距。
+
+预览视频和海报位于每个 `docs/effects/<id>/` 中。`src/render.tsx` 提供三个可独立渲染的 Composition；需在有 Remotion CLI 的工程中运行。网页没有构建依赖；`node scripts/create-effect-pages.mjs` 可重新生成三页的统一外壳。
+
+## 原有镜头：浮映 · FloatFrame
 
 一张照片从轻微虚化中向上浮入，带着克制的透视倾斜，最后清晰停稳。
 来自个人介绍视频的照片入场动效，整理为 **Remotion 组件 + 可交互的静态网页**。

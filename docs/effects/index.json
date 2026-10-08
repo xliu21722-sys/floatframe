@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "effects": [
+    {
+      "id": "arc-pop-title",
+      "name": "弧形逐字弹入",
+      "summary": "逐字错峰上浮、轻弹，沿弧线停稳。",
+      "tags": ["口播", "标题", "弹簧"],
+      "previewPath": "effects/arc-pop-title/",
+      "sourcePath": "https://github.com/xliu21722-sys/floatframe/tree/main/src/effects/arc-pop-title",
+      "durationSeconds": 2.7,
+      "posterPath": "effects/arc-pop-title/poster.png",
+      "videoPath": "effects/arc-pop-title/preview.mp4"
+    },
+    {
+      "id": "spotlight-orbit",
+      "name": "圆形聚焦旋环",
+      "summary": "圆形窗口轻推入场，外围虚线缓慢旋转。",
+      "tags": ["聚焦", "遮罩", "转折"],
+      "previewPath": "effects/spotlight-orbit/",
+      "sourcePath": "https://github.com/xliu21722-sys/floatframe/tree/main/src/effects/spotlight-orbit",
+      "durationSeconds": 2.1,
+      "posterPath": "effects/spotlight-orbit/poster.png",
+      "videoPath": "effects/spotlight-orbit/preview.mp4"
+    },
+    {
+      "id": "progressive-cards",
+      "name": "递进高亮卡片",
+      "summary": "卡片逐项归位、高亮，引导分点讲解。",
+      "tags": ["卡片", "分点", "高亮"],
+      "previewPath": "effects/progressive-cards/",
+      "sourcePath": "https://github.com/xliu21722-sys/floatframe/tree/main/src/effects/progressive-cards",
+      "durationSeconds": 6.733333333333333,
+      "posterPath": "effects/progressive-cards/poster.png",
+      "videoPath": "effects/progressive-cards/preview.mp4"
+    }
+  ]
+}

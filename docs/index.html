@@ -6,30 +6,90 @@
     <meta name="theme-color" content="#111714" />
     <meta
       name="description"
-      content="浮映 FloatFrame：照片上浮、透视归位、由虚到实。可调参数的动效实验台与 Remotion 组件。"
+      content="阿伟的镜头库：收藏并复用照片入场、口播标题、圆形聚焦与递进卡片动效。支持交互预览、参数调整与 Remotion 源码。"
     />
-    <title>浮映 FloatFrame · Motion playground</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111714'/%3E%3Cpath d='M9 23V8h15v4H13v3h9v4h-9v4' fill='%23c7ff97'/%3E%3C/svg%3E"
-    />
+    <title>阿伟的镜头库 · 可复用动效实验台</title>
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header class="header">
-      <a class="brand" href="./" aria-label="浮映首页"
-        ><span class="brand-mark">f.</span
-        ><span>FloatFrame <span class="brand-cn">浮映</span></span></a
+      <a class="brand" href="./" aria-label="阿伟的镜头库首页"
+        ><span class="brand-mark">a.</span><span>阿伟的镜头库</span></a
       >
-      <span class="header-note">MOTION STUDY / 001</span>
-      <a class="source-link" href="#implementation">查看代码</a>
+      <span class="header-note">4 STUDIES / FRAME BY FRAME</span>
+      <a class="source-link" href="#library">浏览镜头</a>
     </header>
     <main>
-      <section class="intro">
+      <section class="library-intro" id="library">
+        <p class="eyebrow">AWEI’S MOTION LIBRARY / 2026</p>
+        <h1>好动效，<span>留着下次用。</span></h1>
+        <p>从视频里拆解镜头，把节奏、构图与动效变成可复用的组件。</p>
+        <div class="library-grid">
+          <a class="library-card" href="./effects/arc-pop-title/"
+            ><div class="library-poster">
+              <img
+                src="./effects/arc-pop-title/poster.png"
+                alt="金色标题沿弧线排布"
+                width="720"
+                height="1280"
+              />
+            </div>
+            <div class="library-card-copy">
+              <span>002 / 标题 · 2.70 s</span>
+              <h2>弧形逐字弹入 <b>↗</b></h2>
+              <p>逐字错峰、轻弹归位。让开场重点先被看见。</p>
+            </div></a
+          >
+          <a class="library-card" href="./effects/spotlight-orbit/"
+            ><div class="library-poster">
+              <img
+                src="./effects/spotlight-orbit/poster.png"
+                alt="圆形聚焦窗口与虚线圆环"
+                width="720"
+                height="1280"
+              />
+            </div>
+            <div class="library-card-copy">
+              <span>003 / 聚焦 · 2.10 s</span>
+              <h2>圆形聚焦旋环 <b>↗</b></h2>
+              <p>圆形遮罩、缓慢旋环。给核心观点一个停顿。</p>
+            </div></a
+          >
+          <a class="library-card" href="./effects/progressive-cards/"
+            ><div class="library-poster">
+              <img
+                src="./effects/progressive-cards/poster.png"
+                alt="三张依次高亮的观点卡片"
+                width="720"
+                height="1280"
+              />
+            </div>
+            <div class="library-card-copy">
+              <span>004 / 卡片 · 6.73 s</span>
+              <h2>递进高亮卡片 <b>↗</b></h2>
+              <p>逐项归位、转移高亮。把分点讲解说清楚。</p>
+            </div></a
+          >
+          <a class="library-card" href="#floatframe"
+            ><div class="library-poster original-poster">
+              <div>Float<br />Frame.<small>浮 映 / 001</small></div>
+            </div>
+            <div class="library-card-copy">
+              <span>001 / 照片 · 原有镜头</span>
+              <h2>浮映 · 照片入场 <b>↓</b></h2>
+              <p>照片完整上浮，透视归位，由虚到实。</p>
+            </div></a
+          >
+        </div>
+        <p class="library-privacy">
+          公开演示使用安全示例，不含原始个人照片、视频与声音。
+        </p>
+      </section>
+      <section class="intro" id="floatframe">
         <div>
           <p class="eyebrow">PHOTO ENTRANCE / REMOTION</p>
-          <h1>轻轻浮入，<span>清晰落定。</span></h1>
+          <h2 class="legacy-title">轻轻浮入，<span>清晰落定。</span></h2>
         </div>
         <p class="intro-copy">
           上浮、透视、聚焦。<br />把一次照片入场，调到恰到好处。
@@ -206,7 +266,7 @@
         </div>
       </section>
       <footer>
-        <span>FloatFrame / 浮映</span><span>FRAME-DRIVEN. FULLY VISIBLE.</span
+        <span>阿伟的镜头库</span><span>FRAME-DRIVEN. FULLY VISIBLE.</span
         ><span>Motion study · 2026</span>
       </footer>
     </main>

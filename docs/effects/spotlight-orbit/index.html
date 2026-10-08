@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#131a16" />
+    <meta
+      name="description"
+      content="圆形窗口轻推入场，外围虚线匀速旋转。适合观点转折与人物聚焦。"
+    />
+    <title>圆形聚焦旋环 · 阿伟的镜头库</title>
+    <link rel="icon" type="image/svg+xml" href="../../icon.svg" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../shared/style.css" />
+  </head>
+  <body data-effect="spotlight-orbit">
+    <header class="header">
+      <a class="brand" href="../../"
+        ><span class="brand-mark">a.</span><span>阿伟的镜头库</span></a
+      ><span class="header-note">MOTION LIBRARY</span
+      ><a class="source-link" href="../../#library">返回镜头库</a>
+    </header>
+    <main>
+      <section class="effect-intro">
+        <p class="eyebrow">REUSABLE MOTION / REMOTION</p>
+        <h1 id="effect-name">圆形聚焦旋环</h1>
+        <p id="summary">
+          圆形窗口轻推入场，外围虚线匀速旋转。适合观点转折与人物聚焦。
+        </p>
+      </section>
+      <section class="effect-grid" aria-label="圆形聚焦旋环实验台">
+        <div class="effect-player">
+          <div class="panel-top">
+            <span>9:16 / 实时预览</span><span id="state">已暂停</span>
+          </div>
+          <div class="effect-stage"><div id="effect-scene"></div></div>
+          <div class="effect-transport">
+            <button id="play" aria-label="播放动效">播放</button
+            ><button id="replay" aria-label="从头重播">重播</button>
+            <div class="timeline-wrap">
+              <label class="sr-only" for="timeline">预览时间轴</label
+              ><input
+                id="timeline"
+                type="range"
+                min="0"
+                max="2.1"
+                step="0.001"
+                value="0"
+              />
+              <div class="timeline-labels">
+                <span>0.00 s</span><span id="end-time">2.10 s</span>
+              </div>
+            </div>
+            <output id="time" for="timeline">0.00 s</output>
+          </div>
+        </div>
+        <aside>
+          <div class="effect-settings">
+            <h2>调成你的镜头</h2>
+            <label class="field" for="text-input"
+              >示例标题<input id="text-input" type="text" maxlength="16"
+            /></label>
+            <div class="field">
+              <label class="label-row" for="parameter"
+                ><span id="parameter-label">参数</span
+                ><output id="parameter-value" for="parameter"></output></label
+              ><input type="range" id="parameter" />
+            </div>
+            <label class="loop"
+              ><input id="loop" type="checkbox" />循环播放</label
+            ><button class="text-button" id="reset">还原默认值</button>
+            <div class="actions">
+              <a href="./preview.mp4" download>下载 MP4 示例</a
+              ><a
+                id="source"
+                href="https://github.com/xliu21722-sys/floatframe/tree/main/src/effects/spotlight-orbit"
+                >Remotion 源码 ↗</a
+              >
+            </div>
+            <p class="privacy">
+              示例只用原创几何图形与文字，不含原片人物、照片或声音。标题修改仅在本机预览。
+            </p>
+          </div>
+          <div class="code-panel effect-code">
+            <div class="code-heading">
+              <span>当前参数</span><button id="copy">复制</button
+              ><span id="copy-status" role="status"></span>
+            </div>
+            <pre tabindex="0"><code id="code"></code></pre>
+          </div>
+          <p class="effect-note">
+            按秒驱动，可在任意帧暂停。网页与 Remotion 复用同一套计算和 SVG。<a
+              href="https://github.com/xliu21722-sys/floatframe#新增镜头接入"
+              >接入说明</a
+            >
+            · <a href="./motion.js">纯计算入口</a>
+          </p>
+        </aside>
+      </section>
+      <footer>
+        <span>阿伟的镜头库</span><span>FRAME-DRIVEN. REUSABLE.</span
+        ><span>Motion study · 2026</span>
+      </footer>
+    </main>
+    <script type="module" src="../shared/app.js"></script>
+  </body>
+</html>

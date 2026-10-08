@@ -1,0 +1,191 @@
+.effect-intro {
+  padding: 36px 0 27px;
+  max-width: 900px;
+}
+.effect-intro h1 {
+  font-size: 38px;
+}
+.effect-intro p:last-child {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.effect-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+.effect-player {
+  background: #131a16;
+  color: #edf1e6;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.effect-stage {
+  height: 590px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse, #27382b, #131a16 80%);
+}
+#effect-scene {
+  height: 100%;
+  aspect-ratio: 9/16;
+  max-width: 100%;
+}
+#effect-scene svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.effect-transport {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #ffffff16;
+}
+.effect-transport button {
+  border-radius: 7px;
+  padding: 10px 15px;
+  background: #c7ff97;
+  color: #172019;
+  font-size: 14px;
+}
+.effect-transport #replay {
+  background: #29392d;
+  color: #d4e3cc;
+}
+.effect-transport output {
+  font:
+    12px ui-monospace,
+    monospace;
+  white-space: nowrap;
+}
+.effect-transport input[type="range"] {
+  accent-color: #c7ff97;
+}
+.effect-settings {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 25px;
+}
+.effect-settings h2 {
+  font-size: 19px;
+  margin: 0 0 22px;
+}
+.effect-settings .field {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.effect-settings input[type="text"] {
+  display: block;
+  width: 100%;
+  border: 1px solid #dce1d8;
+  border-radius: 7px;
+  padding: 12px;
+  margin-top: 10px;
+  background: #f5f6f3;
+  color: #18201b;
+}
+.effect-settings .label-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.effect-settings output {
+  color: #687269;
+  font-size: 12px;
+}
+.effect-settings .loop {
+  display: flex;
+  gap: 7px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.effect-settings .actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 24px 0 14px;
+}
+.effect-settings .actions a {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 7px;
+  font-size: 13px;
+}
+.effect-settings .actions a:first-child {
+  background: #c7ff97;
+  border-color: #c7ff97;
+}
+.effect-settings .privacy {
+  line-height: 1.8;
+  font-size: 12px;
+}
+.effect-code {
+  margin: 24px 0;
+}
+.effect-code pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.effect-code .code-heading {
+  gap: 10px;
+}
+.effect-code #copy-status {
+  font-size: 12px;
+  color: #687269;
+}
+.effect-note {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #687269;
+}
+.effect-note a {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+  .effect-grid {
+    grid-template-columns: 1fr;
+  }
+  .effect-stage {
+    height: min(590px, 130vw);
+  }
+  .effect-intro h1 {
+    font-size: 29px;
+  }
+  .effect-settings {
+    padding: 22px;
+  }
+  .effect-transport {
+    padding: 14px 12px;
+    gap: 9px;
+  }
+  .effect-transport button {
+    padding: 10px 11px;
+  }
+  .effect-intro {
+    padding-top: 27px;
+  }
+  .header .source-link {
+    white-space: nowrap;
+  }
+  .brand {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    gap: 8px;
+  }
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
+}

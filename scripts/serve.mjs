@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { resolve, extname, sep } from "node:path";
 
 const root = fileURLToPath(new URL("../docs/", import.meta.url));
+const port = Number(process.env.PORT || 4173);
 const component = fileURLToPath(
   new URL("../src/FloatFrame.tsx", import.meta.url),
 );
@@ -12,6 +13,10 @@ const mime = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".tsx": "text/plain; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".mp4": "video/mp4",
 };
 createServer(async (req, res) => {
   try {
@@ -41,6 +46,6 @@ createServer(async (req, res) => {
   } catch {
     res.writeHead(404).end("Not found");
   }
-}).listen(4173, "127.0.0.1", () =>
-  console.log("FloatFrame: http://127.0.0.1:4173"),
+}).listen(port, "127.0.0.1", () =>
+  console.log(`阿伟的镜头库: http://127.0.0.1:${port}`),
 );
